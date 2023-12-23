@@ -1,0 +1,9 @@
+{
+  "compilerOptions":{
+    "outDir": "build",
+    "target": "es2022",
+    "moduleResolution": "nodenext",
+    "module": "NodeNext"
+  },
+  "include": ["src/**/*"]
+}
