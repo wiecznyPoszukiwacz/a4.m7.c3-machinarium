@@ -22,7 +22,7 @@ export class Registry{
 	}
 
 	get level(){
-		return Math.ceil((this.val / this.cap) * 100)
+		return Math.floor((this.val / this.cap) * 100)
 	}
 
 	public accept(value: number): number{

@@ -5,7 +5,7 @@ export class Machinarium{
 	private interval = 2000
 	private ticks = 0
 
-	private machines: Map<string, Machine> = new Map()
+	public machines: Map<string, Machine> = new Map()
 
 	public constructor(){
 	}
@@ -18,7 +18,7 @@ export class Machinarium{
 
 	public run(){
 		setInterval(() => {
-			console.log('---', this.ticks)
+			//console.log('---', this.ticks)
 
 			this.tick()
 
@@ -40,7 +40,7 @@ export class Machinarium{
 		for(let [serial, machine] of this.machines){
 			machine.phaseOut()
 
-			console.log(machine.getStatus())
+			//console.log(machine.getStatus())
 		}
 	}
 }
