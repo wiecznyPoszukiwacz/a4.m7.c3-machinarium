@@ -4,7 +4,7 @@ import { Registry } from "../../Registry.mjs";
 export class EnergyStorage extends Machine{
 
 	protected storedEnergy: Registry
-	protected capacity: number = 10
+	protected capacity: number = 100000
 
 	public constructor(serialNumber: string){
 		super(serialNumber)
