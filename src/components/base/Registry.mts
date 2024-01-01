@@ -1,4 +1,3 @@
-import { info } from "console"
 
 export class Registry{
 
@@ -11,6 +10,10 @@ export class Registry{
 		}
 
 		this.val = initValue
+	}
+
+	get missing(){
+		return this.cap - this.val
 	}
 
 	get value(){
