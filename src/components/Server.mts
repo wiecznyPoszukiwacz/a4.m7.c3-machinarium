@@ -5,14 +5,14 @@ import { Machinarium } from './Machinarium.mjs'
 
 export class Server{
 
-	private operators = []
+	private operators: Array<Operator> = []
 
 	public constructor(machinarium: Machinarium){
 
 		const wss = new WebSocketServer({
-			port: 8080
+			port: 8090
 		})
-		console.log('ws server started')
+		console.log('ws server started ...')
 
 		wss.on('connection', (ws)=>{
 			this.operators.push(new Operator(ws, machinarium))

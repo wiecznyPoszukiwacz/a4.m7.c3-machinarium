@@ -3,7 +3,8 @@
     "outDir": "build",
     "target": "es2022",
     "moduleResolution": "nodenext",
-    "module": "NodeNext"
+    "module": "NodeNext",
+    "strict": true
   },
   "include": ["src/**/*"]
 }
