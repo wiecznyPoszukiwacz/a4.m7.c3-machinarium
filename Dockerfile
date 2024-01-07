@@ -14,6 +14,6 @@ RUN npm ci --omit=dev
 FROM gcr.io/distroless/nodejs20-debian12:nonroot
 WORKDIR /usr/local/app
 COPY --from=transpiler /usr/local/app/build/ .
-COPY --from=installer /usr/local/app/node_modules/ .
+COPY --from=installer /usr/local/app/node_modules/ ./node_modules/
 
 CMD ["/usr/local/app/index.mjs"]
