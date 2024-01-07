@@ -1,4 +1,5 @@
 import { ElectricityUnit } from "../subsystems/electricity/basic/ElectricityUnit.mjs"
+import { TemperatureUnit } from "../subsystems/temperature/basic/TemperatureUnit.mjs"
 
 export abstract class Machine{
 
@@ -9,6 +10,7 @@ export abstract class Machine{
 
 	protected wear: number = 0
 	protected electricityUnit!: ElectricityUnit | null
+	protected temperatureUnit!: TemperatureUnit | null
 
 	protected configuration: Record<string, string | number | boolean> = {}
 
@@ -21,6 +23,9 @@ export abstract class Machine{
 
 	public getConfig(setting: string){
 		return this.configuration[setting]
+	}
+	public getTemperatureUnit(): TemperatureUnit | null{
+		return this.temperatureUnit
 	}
 
 	public getElectricityUnit(): ElectricityUnit | null{
