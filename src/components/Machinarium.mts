@@ -40,9 +40,9 @@ export class Machinarium{
 	public run(){
 		setInterval(() => {
 
-			console.time('tick')
+			//console.time('tick')
 			this.tick()
-			console.timeEnd('tick')
+			//console.timeEnd('tick')
 
 			this.ticks ++
 		}, this.interval)
