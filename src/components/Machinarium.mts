@@ -1,21 +1,27 @@
 import { ElectricityManager } from "../subsystems/electricity/basic/ElectricityManager.mjs"
+import { TemperatureManager } from "../subsystems/temperature/basic/TemperatureManager.mjs"
 import { Machine } from "./Machine.mjs"
 
 export class Machinarium{
 
-	private interval = 500
+	private interval = 1000
 	private ticks = 0
 
 	public machines: Map<string, Machine> = new Map()
 	protected tickListeners: Array<CallableFunction> = []
 
 	public electricityManager!: ElectricityManager
+	public temperatureManager!: TemperatureManager
 
 	public constructor(){
 	}
 
 	public setElectricityManager(electricityManager: ElectricityManager){
 		this.electricityManager = electricityManager
+	}
+
+	public setTemperatureManager(temperatureManager: TemperatureManager){
+		this.temperatureManager = temperatureManager
 
 	}
 
@@ -27,12 +33,16 @@ export class Machinarium{
 
 		this.machines.set(machine.serialNumber, machine)
 		this.electricityManager.addMachine(machine)
+		this.temperatureManager.addMachine(machine)
+
 	}
 
 	public run(){
 		setInterval(() => {
 
+			console.time('tick')
 			this.tick()
+			console.timeEnd('tick')
 
 			this.ticks ++
 		}, this.interval)
@@ -42,6 +52,7 @@ export class Machinarium{
 
 		let tickData = {}
 		this.electricityManager.tick()
+		this.temperatureManager.tick()
 
 		for(let [_serial, machine] of this.machines){
 			machine.phaseIn()

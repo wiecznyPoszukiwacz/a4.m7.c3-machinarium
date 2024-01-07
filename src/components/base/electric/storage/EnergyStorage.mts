@@ -6,7 +6,7 @@ import { Registry } from "../../Registry.mjs";
 export class EnergyStorage extends Machine{
 
 	protected storedEnergy: Registry
-	protected capacity: number = 200
+	protected capacity: number = 1000
 
 	protected inlet: ElectricityInlet
 	protected outlet: ElectricityOutlet

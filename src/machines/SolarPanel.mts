@@ -34,7 +34,7 @@ export class SolarPanel extends Machine{
 	}
 	protected onPhaseOut(): void {
 
-		let moc = 20
+		let moc = 60
 		
 		let starAngle = (new Date().getTime()/1000) * 6
 		let generated = Math.max(Math.ceil(moc * Math.sin(starAngle * Math.PI / 180)), 0)
