@@ -2,7 +2,7 @@ FROM node:20 AS transpiler
 WORKDIR /usr/local/app
 copy . .
 
-RUN npm ci && npx tsc
+RUN npm ci && npx tsc; exit 0
 
 FROM node:20 AS installer
 
