@@ -1,4 +1,5 @@
 
+import chalk from "chalk";
 import { Machine } from "../../../components/Machine.mjs";
 import { TemperatureExchange } from "./TemperatureExchain.mjs";
 
@@ -11,11 +12,15 @@ export class TemperatureManager{
 	public constructor(){
 	}
 
-	public getReport(){
-		let report = 'currents:' + LF
+        public getReport(){
+                let report = 'exchanges:' + LF
 
-		return report
-	}
+                for(let [, exchange] of this.exchanges){
+                        report += chalk.hex('#e35b22')('') + ` ${exchange.id}${LF}` + exchange.getReport()
+                }
+
+                return report
+        }
 
 	public tick(){
 		for(let [, exchange] of this.exchanges){
