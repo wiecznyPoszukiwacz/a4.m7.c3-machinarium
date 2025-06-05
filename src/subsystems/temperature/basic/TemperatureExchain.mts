@@ -1,4 +1,5 @@
 import { TemperaturePoint } from "./TemperaturePoint.mjs"
+import { centyRound } from "../../../Utils.mjs"
 
 const LF = "\n"
 
@@ -66,15 +67,15 @@ export class TemperatureExchange{
 
 	}
 
-	public getReport(){
-		let report = 'points:' + LF
+        public getReport(){
+                let report = 'points:' + LF
 
-		// for(let [, point] of this.electricityPoints){
-		// 	report += chalk.hex('#1a97de')(point instanceof ElectricityOutlet ? '󱄇 ':' ') + ` ${point.id}${LF}`
-		//
-		// }
-		return report
-	}
+                for(const point of this.temperaturePoints){
+                        report += `  ${point.id}: ${centyRound(point.temperature)}C${LF}`
+                }
+
+                return report
+        }
 
 	public addTemperaturePoint(temperaturePoint: TemperaturePoint){
 
