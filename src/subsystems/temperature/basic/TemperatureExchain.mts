@@ -77,9 +77,13 @@ export class TemperatureExchange{
                 return report
         }
 
-	public addTemperaturePoint(temperaturePoint: TemperaturePoint){
+        public addTemperaturePoint(temperaturePoint: TemperaturePoint){
 
-		this.temperaturePoints.push(temperaturePoint)
-	}
+                if(this.temperaturePoints.some(tp => tp.id === temperaturePoint.id)){
+                        throw new Error('temperature point already exists')
+                }
+
+                this.temperaturePoints.push(temperaturePoint)
+        }
 
 }
